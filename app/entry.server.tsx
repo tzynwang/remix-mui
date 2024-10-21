@@ -5,7 +5,6 @@
  */
 
 import { CacheProvider } from '@emotion/react';
-import createEmotionServer from '@emotion/server/create-instance';
 import { ThemeProvider } from '@mui/material/styles';
 import type { EntryContext } from '@remix-run/node';
 import { createReadableStreamFromReadable } from '@remix-run/node';
@@ -58,9 +57,9 @@ function handleBotRequest(
           shellRendered = true;
           const body = new PassThrough();
           const stream = createReadableStreamFromReadable(body);
-          const emotionServer = createEmotionServer(emotionCache);
-          const bodyWithStyles = emotionServer.renderStylesToNodeStream();
-          body.pipe(bodyWithStyles);
+          // const emotionServer = createEmotionServer(emotionCache);
+          // const bodyWithStyles = emotionServer.renderStylesToNodeStream();
+          // body.pipe(bodyWithStyles);
           responseHeaders.set('Content-Type', 'text/html');
           resolve(
             new Response(stream, {
@@ -104,9 +103,9 @@ function handleBrowserRequest(
           shellRendered = true;
           const body = new PassThrough();
           const stream = createReadableStreamFromReadable(body);
-          const emotionServer = createEmotionServer(emotionCache);
-          const bodyWithStyles = emotionServer.renderStylesToNodeStream();
-          body.pipe(bodyWithStyles);
+          // const emotionServer = createEmotionServer(emotionCache);
+          // const bodyWithStyles = emotionServer.renderStylesToNodeStream();
+          // body.pipe(bodyWithStyles);
           responseHeaders.set('Content-Type', 'text/html');
           resolve(
             new Response(stream, {
