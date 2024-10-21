@@ -57,9 +57,6 @@ function handleBotRequest(
           shellRendered = true;
           const body = new PassThrough();
           const stream = createReadableStreamFromReadable(body);
-          // const emotionServer = createEmotionServer(emotionCache);
-          // const bodyWithStyles = emotionServer.renderStylesToNodeStream();
-          // body.pipe(bodyWithStyles);
           responseHeaders.set('Content-Type', 'text/html');
           resolve(
             new Response(stream, {
@@ -103,9 +100,6 @@ function handleBrowserRequest(
           shellRendered = true;
           const body = new PassThrough();
           const stream = createReadableStreamFromReadable(body);
-          // const emotionServer = createEmotionServer(emotionCache);
-          // const bodyWithStyles = emotionServer.renderStylesToNodeStream();
-          // body.pipe(bodyWithStyles);
           responseHeaders.set('Content-Type', 'text/html');
           resolve(
             new Response(stream, {
